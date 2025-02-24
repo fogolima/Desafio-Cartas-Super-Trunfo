@@ -1,4 +1,5 @@
-#include <stdio.h>
+
+ #include <stdio.h>
 
 int main() {
     
@@ -16,7 +17,7 @@ int main() {
     printf("Código da Carta (ex: A01): ");
     scanf("%s", codigo1);
     printf("Nome da Cidade: ");
-    scanf(" %[^\n]", nomeCidade1);
+    scanf(" %[^\n]", nomeCidade1); // Lê até a nova linha
     printf("População: ");
     scanf("%d", &populacao1);
     printf("Área (em km²): ");
@@ -24,7 +25,7 @@ int main() {
     printf("PIB (em bilhões de reais): ");
     scanf("%f", &pib1);
     printf("Número de Pontos Turísticos: ");
-    scanf("%d", &pontosTuristicos1); // 
+    scanf("%d", &pontosTuristicos1); // Corrigido o parêntese faltante
     
     char estado2;
     char codigo2[20];
