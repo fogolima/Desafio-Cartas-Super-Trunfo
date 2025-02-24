@@ -24,7 +24,7 @@ int main() {
     printf("PIB (em bilhões de reais): ");
     scanf("%f", &pib1);
     printf("Número de Pontos Turísticos: ");
-    scanf("%d", &pontosTuristicos1);
+    scanf("%d", &pontosTuristicos1); // 
     
     char estado2;
     char codigo2[20];
