@@ -1,73 +1,60 @@
+#include <stdio.h>
 
- #include <stdio.h>
+#define TAMANHO_TABULEIRO 10
+#define TAMANHO_NAVIO 3
+
+// Função para inicializar o tabuleiro com 0s (água)
+void inicializarTabuleiro(int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO]) {
+    for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
+        for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
+            tabuleiro[i][j] = 0; // Preenche com 0 (água)
+        }
+    }
+}
+
+// Função para exibir o tabuleiro
+void exibirTabuleiro(int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO]) {
+    printf("Tabuleiro:\n");
+    for (int i = 0; i < TAMANHO_TABULEIRO; i++) {
+        for (int j = 0; j < TAMANHO_TABULEIRO; j++) {
+            printf("%d ", tabuleiro[i][j]); // Exibe cada célula do tabuleiro
+        }
+        printf("\n"); // Nova linha após cada linha do tabuleiro
+    }
+}
+
+// Função para posicionar um navio horizontalmente
+void posicionarNavioHorizontal(int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO], int linha, int coluna) {
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[linha][coluna + i] = 3; // Preenche com 3 (parte do navio)
+    }
+}
+
+// Função para posicionar um navio verticalmente
+void posicionarNavioVertical(int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO], int linha, int coluna) {
+    for (int i = 0; i < TAMANHO_NAVIO; i++) {
+        tabuleiro[linha + i][coluna] = 3; // Preenche com 3 (parte do navio)
+    }
+}
 
 int main() {
-    
-    char estado1;
-    char codigo1[20];
-    char nomeCidade1[25]; 
-    int populacao1;
-    float area1;
-    float pib1;
-    int pontosTuristicos1;
-    
-    printf("Digite os dados da Carta 1:\n");
-    printf("Estado (A-H): ");
-    scanf(" %c", &estado1);
-    printf("Código da Carta (ex: A01): ");
-    scanf("%s", codigo1);
-    printf("Nome da Cidade: ");
-    scanf(" %[^\n]", nomeCidade1); // Lê até a nova linha
-    printf("População: ");
-    scanf("%d", &populacao1);
-    printf("Área (em km²): ");
-    scanf("%f", &area1);
-    printf("PIB (em bilhões de reais): ");
-    scanf("%f", &pib1);
-    printf("Número de Pontos Turísticos: ");
-    scanf("%d", &pontosTuristicos1); // Corrigido o parêntese faltante
-    
-    char estado2;
-    char codigo2[20];
-    char nomeCidade2[25];
-    int populacao2;
-    float area2;
-    float pib2;
-    int pontosTuristicos2;
+    int tabuleiro[TAMANHO_TABULEIRO][TAMANHO_TABULEIRO];
 
-    printf("\nDigite os dados da Carta 2:\n");
-    printf("Estado (A-H): ");
-    scanf(" %c", &estado2);
-    printf("Código da Carta (ex: A01): ");
-    scanf("%s", codigo2);
-    printf("Nome da Cidade: ");
-    scanf(" %[^\n]", nomeCidade2);
-    printf("População: ");
-    scanf("%d", &populacao2);
-    printf("Área (em km²): ");
-    scanf("%f", &area2);
-    printf("PIB (em bilhões de reais): ");
-    scanf("%f", &pib2);
-    printf("Número de Pontos Turísticos: ");
-    scanf("%d", &pontosTuristicos2);
+    // Inicializa o tabuleiro com 0s (água)
+    inicializarTabuleiro(tabuleiro);
 
-    printf("\nCarta 1:\n");
-    printf("Estado: %c\n", estado1);
-    printf("Código: %s\n", codigo1);
-    printf("Nome da Cidade: %s\n", nomeCidade1);
-    printf("População: %d\n", populacao1);
-    printf("Área: %.2f km²\n", area1);
-    printf("PIB: %.2f bilhões de reais\n", pib1);
-    printf("Número de Pontos Turísticos: %d\n", pontosTuristicos1);
+    // Posiciona um navio horizontalmente
+    int linha_horizontal = 2; // Linha inicial do navio horizontal
+    int coluna_horizontal = 3; // Coluna inicial do navio horizontal
+    posicionarNavioHorizontal(tabuleiro, linha_horizontal, coluna_horizontal);
 
-    printf("\nCarta 2:\n");
-    printf("Estado: %c\n", estado2);
-    printf("Código: %s\n", codigo2);
-    printf("Nome da Cidade: %s\n", nomeCidade2);
-    printf("População: %d\n", populacao2);
-    printf("Área: %.2f km²\n", area2);
-    printf("PIB: %.2f bilhões de reais\n", pib2);
-    printf("Número de Pontos Turísticos: %d\n", pontosTuristicos2);
+    // Posiciona um navio verticalmente
+    int linha_vertical = 5; // Linha inicial do navio vertical
+    int coluna_vertical = 7; // Coluna inicial do navio vertical
+    posicionarNavioVertical(tabuleiro, linha_vertical, coluna_vertical);
+
+    // Exibe o tabuleiro com os navios posicionados
+    exibirTabuleiro(tabuleiro);
 
     return 0;
 }
